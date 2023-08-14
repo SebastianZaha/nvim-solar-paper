@@ -309,16 +309,29 @@ local highlights = {
   yardTypeList = { link = 'Todo' },
 
   -- Treesitter
-  ["@definition.function"] = { link = 'Define' },
+  ["@function"] = { link = 'Define' },
+  ["@method"] = { link = 'Define' },
+   -- @function includes both the definition and the call in some treesitter languages.
+   -- Reset the calls to no highlighting
+  ["@function.call"] = { link = 'Identifier' },
+  ["@method.call"] = { link = 'Identifier' },
 
-  -- LSP 
+  -- Method parameter in definition should be highlighted. Not sure if this is problematic.
+  -- For ruby we already need to override block_parameters to not be parameters.
+  ["@parameter"] = { link = 'Define' },
+
+  -- our own overrides from ./queries/<lang>/highlights.scm
+  ["@custom.define"] = { link = 'Define' },
+  ["@custom.noDefine"] = { link = 'Identifier' },
+
+  -- LSP: disabled for now. See comment in readme
   -- :help lsp-semantic-highlight 
-  ["@lsp.typemod.function.declaration"] = { link = 'Define' },
-  ["@lsp.typemod.method.declaration"] = { link = 'Define' },
-  ["@lsp.typemod.struct.declaration"] = { link = 'Define' },
-  ["@lsp.typemod.namespace.declaration"] = { link = 'Define' },
-  ["@lsp.typemod.class.declaration"] = { link = 'Define' },
-  ["@lsp.typemod.enum.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.function.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.method.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.struct.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.namespace.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.class.declaration"] = { link = 'Define' },
+  -- ["@lsp.typemod.enum.declaration"] = { link = 'Define' },
 }
 
 for group, opts in pairs(highlights) do
