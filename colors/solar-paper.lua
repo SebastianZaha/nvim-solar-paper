@@ -316,6 +316,8 @@ local highlights = {
   ["@function.call"] = { link = 'Identifier' },
   ["@method.call"] = { link = 'Identifier' },
 
+  ["@keyword.function.javascript"] = { link = 'Define' },
+
   -- Method parameter in definition should be highlighted. Not sure if this is problematic.
   -- For ruby we already need to override block_parameters to not be parameters.
   ["@parameter"] = { link = 'Define' },
