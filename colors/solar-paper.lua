@@ -309,14 +309,20 @@ local highlights = {
   yardTypeList = { link = 'Todo' },
 
   -- Treesitter
+
   ["@function"] = { link = 'Define' },
   ["@method"] = { link = 'Define' },
+
    -- @function includes both the definition and the call in some treesitter languages.
    -- Reset the calls to no highlighting
   ["@function.call"] = { link = 'Identifier' },
   ["@method.call"] = { link = 'Identifier' },
 
-  ["@keyword.function.javascript"] = { link = 'Define' },
+  ["@keyword.function"] = { link = 'Define' },
+
+  -- Ruby treesitter would also highlight the "end" corresponding to a "def" with "@keyword.function"
+  -- reset that here. A better highlighting is overriden in queries/ruby/highlights.scm
+  ["@keyword.function.ruby"] = { link = 'Identifier' },
 
   -- Method parameter in definition should be highlighted. Not sure if this is problematic.
   -- For ruby we already need to override block_parameters to not be parameters.
