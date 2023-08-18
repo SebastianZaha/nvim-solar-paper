@@ -181,12 +181,18 @@ local highlights = {
   HopUnmatched = {},
 
   -- HTML
-  htmlTag = {fg = c.black},
-  htmlArg = { link = 'Identifier' },
+  htmlTag = { link = 'Comment' }, -- so that the <> symbols are greyed out
+  htmlEndTag = { link = 'Comment' }, -- so that the <> symbols are greyed out
   htmlLink = { link = 'Directory' },
-  htmlScriptTag = { link = 'htmlTag' },
-  htmlSpecialTagName = { link = 'htmlTag' },
-  htmlTagName = { link = 'htmlTag' },
+  htmlScriptTag = { link = 'Define' },
+  htmlSpecialTagName = { link = 'Define' },
+  htmlTagName = { link = 'Define' },
+  htmlTagN = { link = 'Define' },
+
+  -- FIXME: unsure if extra color is needed for attributes
+  --  htmlArg = { fg = c.orange },
+  --  htmlString = { link = 'Comment' },
+  --  htmlValue = { link = 'Comment' },
 
   -- Inko
   inkoCommentBold = {fg = c.grey, bold = true},
@@ -312,10 +318,6 @@ local highlights = {
 
   ["@keyword.function"] = { link = 'Define' },
 
-  -- Ruby treesitter would also highlight the "end" corresponding to a "def" with "@keyword.function"
-  -- reset that here. A better highlighting is overriden in queries/ruby/highlights.scm
-  ["@keyword.function.ruby"] = { link = 'Identifier' },
-
   -- Method parameter in definition should be highlighted. Not sure if this is problematic.
   -- For ruby we already need to override block_parameters to not be parameters.
   ["@parameter"] = { link = 'Define' },
@@ -323,6 +325,13 @@ local highlights = {
   -- our own overrides from ./queries/<lang>/highlights.scm
   ["@custom.define"] = { link = 'Define' },
   ["@custom.noDefine"] = { link = 'Identifier' },
+
+  -- Ruby treesitter would also highlight the "end" corresponding to a "def" with "@keyword.function"
+  -- reset that here. A better highlighting is overriden in queries/ruby/highlights.scm
+  ["@keyword.function.ruby"] = { link = 'Identifier' },
+
+  ["@tag.html"] = { link = 'Define' },
+  ["@tag.delimiter.html"] = { link = 'Comment' },
 
   -- LSP: disabled for now. See comment in readme
   -- :help lsp-semantic-highlight 
