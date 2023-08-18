@@ -132,14 +132,6 @@ local highlights = {
 
   SpecialString = {fg = c.grey},
 
-  -- These highlight groups can be used for statuslines, for example when
-  -- displaying ALE warnings and errors.
-  WhiteOnOrange = {fg = c.white, bg = c.orange},
-  WhiteOnYellow = {fg = c.white, bg = c.yellow},
-  WhiteOnRed = {fg = c.white, bg = c.red},
-  BlackOnLightYellow = {fg = c.black, bg = c.lyellow},
-  Yellow = {fg = c.yellow, bold = true},
-
   -- ALE
   ALEError = {fg = c.red, bold = true},
   ALEErrorSign = {fg = c.red, bold = true},
