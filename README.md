@@ -8,8 +8,8 @@ changing the main background and foreground colors to Solarized-inspired ones.
 Bold is avoided, I find it too jarring in the terminal.
 
 Syntax highlighting is mostly only done for comments and for method and type definitions
-- which are kept as a structural separation hint. This yields a pleasing <i>heading</i> then 
-<i>section</i> visual structure.
+(which are kept as a structural separation hint). 
+This yields a pleasing <i>heading</i> then <i>section</i> visual structure.
 
 The method and type definitions are done via Treesitter (with a couple of defaults for the
 classic vim syntax highlighting.
