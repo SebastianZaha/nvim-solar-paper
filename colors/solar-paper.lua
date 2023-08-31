@@ -292,6 +292,8 @@ local highlights = {
   VimIsCommand = { link = 'Constant' },
   vimGroup = { link = 'Constant' },
   vimHiGroup = { link = 'Constant' },
+  vimFunction = { link = 'Define' },
+  vimFuncSID = { link = 'Define' },
 
   -- XML
   xmlAttrib = { link = 'Identifier' },
